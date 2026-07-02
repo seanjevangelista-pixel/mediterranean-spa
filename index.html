@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mediterranean Massage and Esthetics | Baltimore, MD</title>
+  <meta name="description" content="Mediterranean Massage and Esthetics in Baltimore, MD — Transform your day into a moment of peace. Swedish, deep tissue, facials, body treatments & more. Book online or call (410) 812-0006.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mediterranean Massage and Esthetics | Baltimore, MD">
+  <meta property="og:description" content="Transform your day into a moment of peace. Professional massage therapy and esthetics in Baltimore, MD. Book your appointment today.">
+  <meta property="og:url" content="https://www.mediterraneanspa.com">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DaySpa",
+    "name": "Mediterranean Massage and Esthetics",
+    "description": "Professional massage therapy and esthetics services blending traditional and contemporary techniques for renewal, balance, and harmony.",
+    "telephone": "+14108120006",
+    "email": "mediterr20nean@gmail.com",
+    "url": "https://www.mediterraneanspa.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2831 O'Donnell St Suite B",
+      "addressLocality": "Baltimore",
+      "addressRegion": "MD",
+      "postalCode": "21224",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.2849,
+      "longitude": -76.5638
+    },
+    "priceRange": "$$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Spa Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Swedish Massage"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Deep Tissue Massage"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Facial Treatment"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Body Scrub"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Couples Massage"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Waxing"}}
+      ]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:        #FAF6F0;
+      --cream-dark:   #F2EAE0;
+      --terracotta:   #C4704A;
+      --terracotta-d: #A85A38;
+      --terracotta-l: #D8906A;
+      --sage:         #7A9E87;
+      --sage-dark:    #5C8068;
+      --sage-light:   #A8C4B0;
+      --gold:         #B8973A;
+      --gold-light:   #D4AE55;
+      --gold-pale:    #F5EDD6;
+      --brown:        #7B5C3A;
+      --brown-dark:   #5A3E25;
+      --warm-white:   #FEFCF8;
+      --text:         #2C1A0E;
+      --text-mid:     #5A3E25;
+      --text-muted:   #8C7060;
+      --border:       rgba(184,151,58,0.2);
+      --font-serif:   'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Lato', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--warm-white);
+      overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(250, 246, 240, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 74px;
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled {
+      box-shadow: 0 4px 32px rgba(124,91,58,0.10);
+    }
+    .nav-logo {
+      text-decoration: none;
+      display: flex; flex-direction: column;
+      line-height: 1.1;
+    }
+    .nav-logo .l1 {
+      font-family: var(--font-serif);
+      font-size: 22px; font-weight: 600;
+      color: var(--brown-dark);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .nav-logo .l2 {
+      font-family: var(--font-body);
+      font-size: 8.5px; font-weight: 700;
+      color: var(--terracotta);
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+    .nav-right {
+      display: flex; align-items: center; gap: 28px;
+    }
+    .nav-phone {
+      font-family: var(--font-body);
+      font-size: 14px; font-weight: 700;
+      color: var(--brown);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-phone:hover { color: var(--terracotta); }
+    .btn-nav {
+      background: var(--terracotta);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-nav:hover { background: var(--terracotta-d); }
+    .nav-toggle {
+      display: none; background: none; border: none;
+      cursor: pointer; padding: 4px; color: var(--brown);
+    }
+    .nav-toggle svg { display: block; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #2C1A0E 0%, #3D2510 40%, #5A3225 70%, #7B4A35 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 40%, rgba(196,112,74,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(184,151,58,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 30% 30% at 20% 20%, rgba(122,158,135,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* decorative rings */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border: 1px solid rgba(184,151,58,0.12);
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 760px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+      opacity: 0.9;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 300;
+      font-style: italic;
+      color: #FEFCF8;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 15px; font-weight: 300;
+      color: rgba(254,252,248,0.7);
+      letter-spacing: 0.04em;
+      margin-bottom: 48px;
+      max-width: 520px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hero-ctas {
+      display: flex; gap: 16px;
+      justify-content: center; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: #fff;
+      border: none;
+      padding: 16px 36px;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--terracotta-d); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: rgba(254,252,248,0.85);
+      border: 1px solid rgba(254,252,248,0.35);
+      padding: 16px 36px;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      border-color: rgba(254,252,248,0.7);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0.5;
+    }
+    .hero-scroll span {
+      font-family: var(--font-body);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .hero-scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--gold-light), transparent);
+      animation: scrollpulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollpulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 0.9; transform: scaleY(1.1); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 5%; }
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 16px;
+    }
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 400;
+      color: var(--brown-dark);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .section-heading em { font-style: italic; color: var(--terracotta); }
+    .section-sub {
+      font-size: 16px; font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 600px;
+    }
+    .divider {
+      width: 48px; height: 2px;
+      background: linear-gradient(to right, var(--terracotta), var(--gold));
+      margin: 24px 0;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--cream);
+    }
+    .about-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+    .about-text .section-sub { max-width: 100%; }
+    .about-text p {
+      color: var(--text-mid); line-height: 1.85; font-size: 15.5px;
+      margin-bottom: 20px; font-weight: 300;
+    }
+    .about-values {
+      display: flex; flex-direction: column; gap: 24px;
+      margin-top: 40px;
+    }
+    .value-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--terracotta);
+      padding: 24px 28px;
+      border-radius: 0 6px 6px 0;
+    }
+    .value-card h4 {
+      font-family: var(--font-serif);
+      font-size: 20px; font-weight: 600;
+      color: var(--brown-dark);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+    .value-card p {
+      font-size: 14px; font-weight: 300;
+      color: var(--text-muted); line-height: 1.7;
+      margin: 0;
+    }
+    .about-visual {
+      position: sticky; top: 100px;
+    }
+    .about-visual-box {
+      background: linear-gradient(160deg, #3D2510 0%, #7B4A35 60%, #A86848 100%);
+      border-radius: 4px;
+      aspect-ratio: 4/5;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .about-visual-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(196,112,74,0.3) 0%, transparent 70%);
+    }
+    .about-visual-inner {
+      position: relative; z-index: 2;
+      text-align: center; padding: 48px;
+    }
+    .about-visual-inner .icon {
+      font-size: 56px; margin-bottom: 24px; opacity: 0.7;
+    }
+    .about-visual-inner p {
+      font-family: var(--font-serif);
+      font-size: 22px; font-style: italic; font-weight: 300;
+      color: rgba(254,252,248,0.85);
+      line-height: 1.5;
+    }
+    .about-visual-caption {
+      text-align: center; margin-top: 16px;
+      font-size: 12px; font-weight: 300;
+      color: var(--text-muted); letter-spacing: 0.04em;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--warm-white);
+    }
+    .services-inner { max-width: 1200px; margin: 0 auto; }
+    .services-header {
+      text-align: center; margin-bottom: 60px;
+    }
+    .services-header .section-label,
+    .services-header .divider { margin-left: auto; margin-right: auto; }
+    .services-notice {
+      display: inline-block;
+      background: var(--gold-pale);
+      border: 1px solid rgba(184,151,58,0.3);
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 12px; font-weight: 700;
+      color: var(--brown);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 16px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--cream);
+      border: 1px solid rgba(184,151,58,0.15);
+      border-radius: 4px;
+      padding: 36px 32px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(124,91,58,0.12);
+    }
+    .service-icon {
+      font-size: 32px; margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-family: var(--font-serif);
+      font-size: 24px; font-weight: 500;
+      color: var(--brown-dark);
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 14px; font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+    .service-price {
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.6;
+    }
+    .btn-book {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--terracotta);
+      color: var(--terracotta);
+      padding: 10px 22px;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .btn-book:hover {
+      background: var(--terracotta);
+      color: #fff;
+    }
+
+    /* ── WHY CHOOSE US ── */
+    .why {
+      background: linear-gradient(160deg, #2C1A0E 0%, #3D2510 50%, #5A3225 100%);
+    }
+    .why-inner { max-width: 1200px; margin: 0 auto; }
+    .why-header { text-align: center; margin-bottom: 64px; }
+    .why-header .section-label { color: var(--gold-light); }
+    .why-header .section-heading { color: var(--warm-white); }
+    .why-header .divider { margin-left: auto; margin-right: auto; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      text-align: center;
+      padding: 40px 24px;
+      background: rgba(254,252,248,0.04);
+      border: 1px solid rgba(184,151,58,0.15);
+      border-radius: 4px;
+      transition: background 0.25s;
+    }
+    .why-card:hover { background: rgba(254,252,248,0.07); }
+    .why-card .icon {
+      font-size: 36px; margin-bottom: 20px;
+      display: block;
+    }
+    .why-card h4 {
+      font-family: var(--font-serif);
+      font-size: 20px; font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+    .why-card p {
+      font-size: 13.5px; font-weight: 300;
+      color: rgba(254,252,248,0.55);
+      line-height: 1.7;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--cream);
+    }
+    .testimonials-inner { max-width: 1200px; margin: 0 auto; }
+    .testimonials-header { text-align: center; margin-bottom: 60px; }
+    .testimonials-header .divider { margin-left: auto; margin-right: auto; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 36px 32px;
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 16px; letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .testimonial-card blockquote {
+      font-family: var(--font-serif);
+      font-size: 17px; font-style: italic; font-weight: 400;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .testimonial-author {
+      font-size: 13px; font-weight: 700;
+      color: var(--terracotta);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── BOOK CTA ── */
+    .book-cta {
+      background: var(--cream-dark);
+      text-align: center;
+      padding: 100px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    .book-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,112,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .book-cta-inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+    .book-cta .section-heading { margin-bottom: 16px; }
+    .book-cta .section-sub { margin: 0 auto 40px; text-align: center; }
+    .book-cta-actions {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-cta-primary {
+      background: var(--terracotta);
+      color: #fff; border: none;
+      padding: 18px 44px;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-cta-primary:hover { background: var(--terracotta-d); transform: translateY(-1px); }
+    .btn-cta-phone {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent;
+      border: 1px solid rgba(90,62,37,0.3);
+      color: var(--brown-dark);
+      padding: 18px 36px;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-cta-phone:hover { border-color: var(--terracotta); color: var(--terracotta); transform: translateY(-1px); }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: var(--warm-white);
+    }
+    .contact-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+    }
+    .contact-info h2 {
+      font-family: var(--font-serif);
+      font-size: 40px; font-weight: 400;
+      color: var(--brown-dark);
+      margin-bottom: 8px;
+    }
+    .contact-info .divider { margin-bottom: 32px; }
+    .contact-detail {
+      display: flex; gap: 16px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+    .contact-detail .icon {
+      font-size: 20px; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-detail-text strong {
+      display: block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 4px;
+    }
+    .contact-detail-text a {
+      color: var(--text-mid); text-decoration: none;
+      font-size: 15px; font-weight: 400;
+      transition: color 0.2s;
+    }
+    .contact-detail-text a:hover { color: var(--terracotta); }
+    .contact-detail-text span {
+      color: var(--text-mid); font-size: 15px;
+    }
+    .hours-table { margin-top: 4px; }
+    .hours-table div {
+      display: flex; justify-content: space-between;
+      font-size: 14px; font-weight: 300;
+      color: var(--text-muted);
+      padding: 3px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .hours-table div span:last-child { color: var(--text-mid); font-weight: 400; }
+
+    /* Map placeholder */
+    .map-placeholder {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      height: 220px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+      margin-top: 32px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .map-placeholder:hover { background: var(--cream-dark); }
+    .map-placeholder span { font-size: 32px; }
+    .map-placeholder p {
+      font-size: 13px; font-weight: 700;
+      color: var(--terracotta);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* Contact form */
+    .contact-form {
+      background: var(--cream);
+      border: 1px solid rgba(184,151,58,0.15);
+      border-radius: 4px;
+      padding: 48px 40px;
+    }
+    .contact-form h3 {
+      font-family: var(--font-serif);
+      font-size: 28px; font-weight: 500;
+      color: var(--brown-dark);
+      margin-bottom: 6px;
+    }
+    .contact-form .form-sub {
+      font-size: 14px; font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--warm-white);
+      border: 1px solid rgba(124,91,58,0.2);
+      border-radius: 2px;
+      padding: 13px 16px;
+      font-family: var(--font-body);
+      font-size: 15px; font-weight: 300;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--terracotta);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit {
+      width: 100%;
+      background: var(--terracotta);
+      color: #fff; border: none;
+      padding: 16px;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--terracotta-d); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-status {
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 4px;
+      font-size: 14px; font-weight: 400;
+      display: none;
+    }
+    .form-status.success {
+      background: rgba(122,158,135,0.12);
+      border: 1px solid rgba(122,158,135,0.35);
+      color: var(--sage-dark);
+      display: block;
+    }
+    .form-status.error {
+      background: rgba(196,112,74,0.08);
+      border: 1px solid rgba(196,112,74,0.3);
+      color: var(--terracotta-d);
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown-dark);
+      padding: 60px 5% 40px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(254,252,248,0.1);
+      margin-bottom: 32px;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .footer-brand .l1 {
+      font-family: var(--font-serif);
+      font-size: 24px; font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: block;
+    }
+    .footer-brand .l2 {
+      font-family: var(--font-body);
+      font-size: 8px; font-weight: 700;
+      color: var(--terracotta-l);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-family: var(--font-serif);
+      font-size: 15px; font-style: italic;
+      color: rgba(250,246,240,0.55);
+      max-width: 280px; line-height: 1.6;
+    }
+    .footer-links h4 {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .footer-links a {
+      display: block;
+      color: rgba(250,246,240,0.6);
+      text-decoration: none;
+      font-size: 14px; font-weight: 300;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-social h4 {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .social-links {
+      display: flex; gap: 12px;
+    }
+    .social-link {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      border: 1px solid rgba(254,252,248,0.15);
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .social-link:hover {
+      background: rgba(196,112,74,0.2);
+      border-color: rgba(196,112,74,0.4);
+    }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 12px; font-weight: 300;
+      color: rgba(250,246,240,0.35);
+      letter-spacing: 0.03em;
+    }
+    .footer-evan {
+      font-size: 11px; font-weight: 300;
+      color: rgba(250,246,240,0.25);
+      letter-spacing: 0.04em;
+    }
+    .footer-evan a {
+      color: rgba(250,246,240,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-evan a:hover { color: rgba(250,246,240,0.6); }
+
+    /* ── MOBILE PHONE BUTTON ── */
+    .mobile-phone {
+      display: none;
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      background: var(--terracotta);
+      color: #fff; border: none;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      font-size: 24px;
+      align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(196,112,74,0.4);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .mobile-phone:hover { background: var(--terracotta-d); transform: scale(1.05); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .nav-phone { display: none; }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-visual { position: static; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .mobile-phone { display: flex; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 80px 6%; }
+      nav { padding: 0 6%; }
+      .nav-toggle { display: block; }
+      .nav-right .btn-nav { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .why-card { padding: 28px 16px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form { padding: 32px 24px; }
+      .footer-top { flex-direction: column; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* Nav mobile menu */
+    .nav-menu {
+      display: none;
+      position: fixed; top: 74px; left: 0; right: 0;
+      background: rgba(250,246,240,0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 6%;
+      flex-direction: column; gap: 0;
+      z-index: 199;
+    }
+    .nav-menu.open { display: flex; }
+    .nav-menu a {
+      display: block;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(124,91,58,0.08);
+      color: var(--text-mid);
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 14px; font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-menu a:hover { color: var(--terracotta); }
+    .nav-menu .btn-menu-book {
+      margin-top: 16px;
+      background: var(--terracotta);
+      color: #fff !important;
+      text-align: center;
+      padding: 14px !important;
+      border-radius: 2px;
+      border-bottom: none !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <span class="l1">Mediterranean</span>
+    <span class="l2">Massage &amp; Esthetics</span>
+  </a>
+  <div class="nav-right">
+    <a href="tel:4108120006" class="nav-phone" onclick="trackCall('nav')">
+      (410) 812-0006
+    </a>
+    <a href="#book" class="btn-nav">Book Now</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8">
+        <line x1="2" y1="6" x2="20" y2="6"/>
+        <line x1="2" y1="11" x2="20" y2="11"/>
+        <line x1="2" y1="16" x2="20" y2="16"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-menu" id="nav-menu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="tel:4108120006" onclick="trackCall('mobile'); closeMenu()">Call (410) 812-0006</a>
+  <a href="#book" class="btn-menu-book" onclick="closeMenu()">Book Appointment</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <p class="hero-eyebrow reveal">Baltimore's Sanctuary for the Senses</p>
+    <h1 class="reveal reveal-delay-1">Transform your Day<br>into a <em style="color:var(--terracotta-l)">Moment of Peace</em></h1>
+    <p class="hero-sub reveal reveal-delay-2">Renewal, balance, and harmony — blending traditional and contemporary techniques for a complete experience of the body and mind.</p>
+    <div class="hero-ctas reveal reveal-delay-3">
+      <a href="#book" class="btn-primary">Book Appointment</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <p class="section-label reveal">Our Philosophy</p>
+      <h2 class="section-heading reveal reveal-delay-1">A Complete Experience<br>of <em>Renewal</em></h2>
+      <div class="divider reveal reveal-delay-2"></div>
+      <p class="reveal reveal-delay-2">At Mediterranean Massage and Esthetics, we believe that true wellness is a harmony of body, mind, and spirit. Nestled in the heart of Baltimore, our sanctuary was created to be a place where the outside world fades and your own renewal takes center stage.</p>
+      <p class="reveal reveal-delay-3">We blend the wisdom of traditional healing practices with contemporary techniques — creating personalized treatments that meet you exactly where you are. Whether you're seeking relief from tension, a radiant glow, or simply a breath of stillness, we are here to guide that journey.</p>
+
+      <div class="about-values">
+        <div class="value-card reveal reveal-delay-1">
+          <h4>Cozy Silence</h4>
+          <p>From the moment you arrive, we cultivate an atmosphere of quiet warmth — a space where noise falls away and your nervous system can finally exhale.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <h4>Delicate Touch</h4>
+          <p>Every treatment is performed with intention and care. Our practitioners listen to your body and respond with a touch that is precise, gentle, and deeply effective.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <h4>Full Presence</h4>
+          <p>You have our complete attention. We bring our whole selves to every session — no distractions, no rushing — just focused, present care devoted entirely to you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual reveal reveal-delay-2">
+      <div class="about-visual-box">
+        <div class="about-visual-inner">
+          <div class="icon">🌿</div>
+          <p>"Renewal begins the moment you allow yourself to be still."</p>
+        </div>
+      </div>
+      <p class="about-visual-caption">— Replace with a real spa photo —</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <p class="section-label reveal">What We Offer</p>
+      <h2 class="section-heading reveal reveal-delay-1">Our <em>Services</em></h2>
+      <div class="divider reveal reveal-delay-2"></div>
+      <p class="section-sub reveal reveal-delay-2" style="margin:0 auto;">Thoughtfully curated treatments for your body, skin, and spirit. Every session is tailored to your unique needs.</p>
+      <div class="reveal reveal-delay-3">
+        <span class="services-notice">⚠ Placeholder — Update with real services &amp; prices from owner</span>
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🤲</div>
+        <h3>Swedish Massage</h3>
+        <p>A classic full-body massage using long, flowing strokes to ease tension, improve circulation, and bring the nervous system into a deep state of relaxation.</p>
+        <p class="service-price">Price TBD · 60 or 90 min</p>
+        <a href="#book" class="btn-book">Book This</a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">💪</div>
+        <h3>Deep Tissue Massage</h3>
+        <p>Targeted pressure on deeper muscle layers to release chronic tension, break up adhesions, and address areas of persistent pain or tightness.</p>
+        <p class="service-price">Price TBD · 60 or 90 min</p>
+        <a href="#book" class="btn-book">Book This</a>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">✨</div>
+        <h3>Facial Treatment</h3>
+        <p>A rejuvenating skin ritual using high-quality products to cleanse, exfoliate, and hydrate — leaving your complexion luminous, balanced, and refreshed.</p>
+        <p class="service-price">Price TBD · 60 min</p>
+        <a href="#book" class="btn-book">Book This</a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🌊</div>
+        <h3>Body Scrub</h3>
+        <p>Full-body exfoliation that sloughs away dull, dry skin — revealing smoother, softer skin beneath and boosting circulation for a natural, healthy glow.</p>
+        <p class="service-price">Price TBD · 45 or 60 min</p>
+        <a href="#book" class="btn-book">Book This</a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">💑</div>
+        <h3>Couples Massage</h3>
+        <p>Share the gift of relaxation side by side. A synchronized experience designed for two, whether celebrating a special occasion or simply reconnecting.</p>
+        <p class="service-price">Price TBD · 60 or 90 min</p>
+        <a href="#book" class="btn-book">Book This</a>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🌸</div>
+        <h3>Waxing</h3>
+        <p>Professional hair removal services using premium wax formulas — gentle on the skin, thorough in results. Face, body, and brow shaping available.</p>
+        <p class="service-price">Price TBD · varies by area</p>
+        <a href="#book" class="btn-book">Book This</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY CHOOSE US ── -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="why-header">
+      <p class="section-label reveal">Why Mediterranean</p>
+      <h2 class="section-heading reveal reveal-delay-1">Your Comfort is Our<br><em style="color:var(--terracotta-l)">Priority</em></h2>
+      <div class="divider reveal reveal-delay-2"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <span class="icon">🏅</span>
+        <h4>Licensed &amp; Insured</h4>
+        <p>Every practitioner is fully licensed, trained, and insured — you're in safe, skilled, professional hands.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <span class="icon">🌿</span>
+        <h4>Natural Products</h4>
+        <p>We use high-quality, skin-kind products — carefully selected to nourish without harsh chemicals or synthetic fillers.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <span class="icon">🎯</span>
+        <h4>Personalized Care</h4>
+        <p>No two sessions are the same. Every treatment is tailored specifically to your body, goals, and preferences.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-4">
+        <span class="icon">🕊️</span>
+        <h4>Serene Environment</h4>
+        <p>Our studio is designed as a true escape — warm, quiet, and intentionally calming from the moment you walk in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <p class="section-label reveal">Client Stories</p>
+      <h2 class="section-heading reveal reveal-delay-1">What Our Guests <em>Say</em></h2>
+      <div class="divider reveal reveal-delay-2"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I've been coming here for months and every single session feels like the first time — completely restorative. The atmosphere is so peaceful and the therapist truly listens to what your body needs."</blockquote>
+        <p class="testimonial-author">— Placeholder Client Name</p>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <blockquote>"My deep tissue massage was exactly what I needed after weeks of stress. I walked out feeling like a completely different person. The space is beautiful and the care is real."</blockquote>
+        <p class="testimonial-author">— Placeholder Client Name</p>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="stars">★★★★★</div>
+        <blockquote>"We came for a couples massage and it was the most relaxing experience we've had together in years. The therapists were professional, attentive, and the environment was just stunning."</blockquote>
+        <p class="testimonial-author">— Placeholder Client Names</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOK CTA ── -->
+<section class="book-cta" id="book">
+  <div class="book-cta-inner">
+    <p class="section-label reveal">Ready to Begin?</p>
+    <h2 class="section-heading reveal reveal-delay-1">Reserve Your<br><em>Moment of Peace</em></h2>
+    <div class="divider reveal reveal-delay-2" style="margin-left:auto;margin-right:auto;"></div>
+    <p class="section-sub reveal reveal-delay-2">Your renewal is one booking away. Schedule online anytime, or call us during business hours — we'd love to hear from you.</p>
+    <div class="book-cta-actions reveal reveal-delay-3">
+      <a href="https://squareup.com/appointments/book" target="_blank" rel="noopener" class="btn-cta-primary">
+        Schedule Online
+      </a>
+      <a href="tel:4108120006" class="btn-cta-phone" onclick="trackCall('cta')">
+        <span>📞</span> (410) 812-0006
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <p class="section-label reveal">Find Us</p>
+      <h2 class="reveal reveal-delay-1">Visit the <em style="font-family:var(--font-serif);font-style:italic;color:var(--terracotta)">Studio</em></h2>
+      <div class="divider reveal reveal-delay-2"></div>
+
+      <div class="contact-detail reveal reveal-delay-2">
+        <span class="icon">📍</span>
+        <div class="contact-detail-text">
+          <strong>Address</strong>
+          <a href="https://maps.google.com/?q=2831+O'Donnell+St+Suite+B+Baltimore+MD+21224" target="_blank" rel="noopener">
+            2831 O'Donnell St Suite B<br>Baltimore, MD 21224
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-detail reveal reveal-delay-3">
+        <span class="icon">📞</span>
+        <div class="contact-detail-text">
+          <strong>Phone</strong>
+          <a href="tel:4108120006" onclick="trackCall('contact')">(410) 812-0006</a>
+        </div>
+      </div>
+
+      <div class="contact-detail reveal reveal-delay-4">
+        <span class="icon">✉️</span>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <a href="mailto:mediterr20nean@gmail.com">mediterr20nean@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-detail reveal">
+        <span class="icon">🕐</span>
+        <div class="contact-detail-text">
+          <strong>Hours</strong>
+          <div class="hours-table">
+            <div><span>Monday – Friday</span><span>Placeholder</span></div>
+            <div><span>Saturday</span><span>Placeholder</span></div>
+            <div><span>Sunday</span><span>Placeholder</span></div>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://maps.google.com/?q=2831+O'Donnell+St+Suite+B+Baltimore+MD+21224" target="_blank" rel="noopener" class="map-placeholder reveal">
+        <span>🗺️</span>
+        <p>Open in Google Maps</p>
+      </a>
+    </div>
+
+    <div class="contact-form reveal reveal-delay-2">
+      <h3>Send Us a Message</h3>
+      <p class="form-sub">Prefer to reach out directly? Fill out the form and we'll get back to you soon.</p>
+      <form id="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required placeholder="(410) 000-0000">
+        </div>
+        <div class="form-group">
+          <label for="service">Service of Interest *</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service…</option>
+            <option>Swedish Massage</option>
+            <option>Deep Tissue Massage</option>
+            <option>Facial Treatment</option>
+            <option>Body Scrub</option>
+            <option>Couples Massage</option>
+            <option>Waxing</option>
+            <option>Not sure — help me choose</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message (optional)</label>
+          <textarea id="message" name="message" placeholder="Any questions, preferences, or special requests…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">Send Message</button>
+        <div class="form-status" id="form-status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="l1">Mediterranean</span>
+        <span class="l2">Massage &amp; Esthetics</span>
+        <p>"Transform your Day into a Moment of Peace"</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <a href="tel:4108120006" onclick="trackCall('footer')">(410) 812-0006</a>
+        <a href="mailto:mediterr20nean@gmail.com">mediterr20nean@gmail.com</a>
+        <a href="https://maps.google.com/?q=2831+O'Donnell+St+Suite+B+Baltimore+MD+21224" target="_blank" rel="noopener">
+          2831 O'Donnell St Suite B<br>Baltimore, MD 21224
+        </a>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link" title="Instagram">
+            📸
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-link" title="TikTok">
+            🎵
+          </a>
+          <a href="https://maps.google.com/?q=2831+O'Donnell+St+Suite+B+Baltimore+MD+21224" target="_blank" rel="noopener" class="social-link" title="Google Maps">
+            📍
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Mediterranean Massage and Esthetics. All rights reserved.</p>
+      <p class="footer-evan">Website by <a href="#" target="_blank" rel="noopener">Evan Enterprises LLC</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile phone button -->
+<a href="tel:4108120006" class="mobile-phone" onclick="trackCall('mobile')" title="Call us">
+  📞
+</a>
+
+<script>
+  // ── SCROLL ANIMATIONS ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Immediately reveal hero items
+  document.querySelectorAll('.hero .reveal').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), 100);
+  });
+
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── MOBILE MENU ──
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+
+  function closeMenu() {
+    menu.classList.remove('open');
+  }
+
+  // ── CALL TRACKING ──
+  function trackCall(source) {
+    try {
+      fetch('/api/track-call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source, ts: new Date().toISOString(), ua: navigator.userAgent }),
+      }).catch(() => {});
+    } catch(_) {}
+  }
+
+  // ── CONTACT FORM ──
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const status = document.getElementById('form-status');
+    const form = document.getElementById('contact-form');
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.className = 'form-status';
+    status.style.display = 'none';
+
+    const data = {
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      service: form.service.value,
+      message: form.message.value.trim(),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        status.className = 'form-status success';
+        status.textContent = '✓ Message sent! We\'ll be in touch soon.';
+        form.reset();
+      } else {
+        throw new Error('Send failed');
+      }
+    } catch (_) {
+      status.className = 'form-status error';
+      status.textContent = 'Something went wrong. Please call us at (410) 812-0006.';
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+    status.style.display = 'block';
+  }
+</script>
+</body>
+</html>
