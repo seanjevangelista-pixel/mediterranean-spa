@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   const resendKey = process.env.RESEND_API_KEY;
   const sbUrl     = process.env.SUPABASE_URL;
   const sbKey     = process.env.SUPABASE_ANON_KEY;
-  const clientId  = process.env.CLIENT_ID;
+  const clientId  = 'e9d2f820-b30b-4cfa-a486-8948698d0075'; // Mediterranean Spa
 
   const { source = 'unknown', ts, ua } = req.body || {};
   const time = ts
