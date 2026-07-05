@@ -8,7 +8,13 @@ export default async function handler(req, res) {
   const resendKey = process.env.RESEND_API_KEY;
   const sbUrl     = process.env.SUPABASE_URL;
   const sbKey     = process.env.SUPABASE_ANON_KEY;
-  const clientId  = 'e9d2f820-b30b-4cfa-a486-8948698d0075'; // Mediterranean Spa
+  // Auto-lookup client ID by domain
+  let clientId = null;
+  try {
+    const lookup = await fetch('https://evan-enterprises-os.vercel.app/api/client-lookup?domain=mediterraneanspa.com');
+    const ldata  = await lookup.json();
+    if (ldata.client?.id) clientId = ldata.client.id;
+  } catch (_) {}
 
   const { source = 'unknown', ts, ua } = req.body || {};
   const time = ts
