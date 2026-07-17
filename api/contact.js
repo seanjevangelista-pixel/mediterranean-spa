@@ -59,24 +59,26 @@ export default async function handler(req, res) {
 
     // Save lead to Evan Enterprises dashboard
     if (supabaseKey) {
-      fetch(`${supabaseUrl}/rest/v1/form_leads`, {
-        method: 'POST',
-        headers: {
-          apikey: supabaseKey,
-          Authorization: `Bearer ${supabaseKey}`,
-          'Content-Type': 'application/json',
-          Prefer: 'return=minimal',
-        },
-        body: JSON.stringify({
-          client_id:      clientId || null,
-          source:         'Mediterranean Spa — Booking Form',
-          customer_name:  name || null,
-          customer_phone: phone || null,
-          service:        service || null,
-          message:        message || null,
-          status:         'new',
-        }),
-      }).catch(() => {});
+      try {
+        await fetch(`${supabaseUrl}/rest/v1/form_leads`, {
+          method: 'POST',
+          headers: {
+            apikey: supabaseKey,
+            Authorization: `Bearer ${supabaseKey}`,
+            'Content-Type': 'application/json',
+            Prefer: 'return=minimal',
+          },
+          body: JSON.stringify({
+            client_id:      clientId || null,
+            source:         'Mediterranean Spa — Booking Form',
+            customer_name:  name || null,
+            customer_phone: phone || null,
+            service:        service || null,
+            message:        message || null,
+            status:         'new',
+          }),
+        });
+      } catch (_) {}
     }
 
     return res.status(200).json({ ok: true });
