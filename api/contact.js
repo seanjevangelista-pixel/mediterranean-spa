@@ -9,6 +9,11 @@ export default async function handler(req, res) {
   const supabaseUrl = process.env.SUPABASE_URL || 'https://hzcgdnhecgewqpcnumwm.supabase.co';
   const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_ANON_KEY;
 
+  const { name, phone, service, message } = req.body || {};
+  if (!name || !phone || !service) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+
   // Auto-lookup client ID by domain — works for any client site
   let clientId = null;
   try {
@@ -17,12 +22,33 @@ export default async function handler(req, res) {
     if (data.client?.id) clientId = data.client.id;
   } catch (_) {}
 
-  if (!key) return res.status(500).json({ error: 'Email not configured' });
-
-  const { name, phone, service, message } = req.body || {};
-  if (!name || !phone || !service) {
-    return res.status(400).json({ error: 'Missing required fields' });
+  // Save lead to Evan Enterprises dashboard first — independent of email,
+  // so a missing RESEND_API_KEY or a Resend outage never causes a booking
+  // lead to be silently dropped from the dashboard.
+  if (supabaseKey) {
+    try {
+      await fetch(`${supabaseUrl}/rest/v1/form_leads`, {
+        method: 'POST',
+        headers: {
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal',
+        },
+        body: JSON.stringify({
+          client_id:      clientId || null,
+          source:         'Mediterranean Spa — Booking Form',
+          customer_name:  name || null,
+          customer_phone: phone || null,
+          service:        service || null,
+          message:        message || null,
+          status:         'new',
+        }),
+      });
+    } catch (_) {}
   }
+
+  if (!key) return res.status(500).json({ error: 'Email not configured' });
 
   try {
     const r = await fetch('https://api.resend.com/emails', {
@@ -56,30 +82,6 @@ export default async function handler(req, res) {
 
     const data = await r.json();
     if (!r.ok) return res.status(r.status).json({ error: data.message || 'Send failed' });
-
-    // Save lead to Evan Enterprises dashboard
-    if (supabaseKey) {
-      try {
-        await fetch(`${supabaseUrl}/rest/v1/form_leads`, {
-          method: 'POST',
-          headers: {
-            apikey: supabaseKey,
-            Authorization: `Bearer ${supabaseKey}`,
-            'Content-Type': 'application/json',
-            Prefer: 'return=minimal',
-          },
-          body: JSON.stringify({
-            client_id:      clientId || null,
-            source:         'Mediterranean Spa — Booking Form',
-            customer_name:  name || null,
-            customer_phone: phone || null,
-            service:        service || null,
-            message:        message || null,
-            status:         'new',
-          }),
-        });
-      } catch (_) {}
-    }
 
     return res.status(200).json({ ok: true });
   } catch (e) {
