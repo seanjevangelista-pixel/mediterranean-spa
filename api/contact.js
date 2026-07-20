@@ -27,7 +27,7 @@ export default async function handler(req, res) {
   // lead to be silently dropped from the dashboard.
   if (supabaseKey) {
     try {
-      await fetch(`${supabaseUrl}/rest/v1/form_leads`, {
+      const sbRes = await fetch(`${supabaseUrl}/rest/v1/form_leads`, {
         method: 'POST',
         headers: {
           apikey: supabaseKey,
@@ -45,7 +45,14 @@ export default async function handler(req, res) {
           status:         'new',
         }),
       });
-    } catch (_) {}
+      if (!sbRes.ok) {
+        console.error('Supabase form_leads insert failed:', sbRes.status, await sbRes.text());
+      }
+    } catch (e) {
+      console.error('Supabase form_leads insert threw:', e.message);
+    }
+  } else {
+    console.error('Supabase key missing — booking lead not saved to dashboard');
   }
 
   if (!key) return res.status(500).json({ error: 'Email not configured' });

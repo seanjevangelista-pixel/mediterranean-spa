@@ -35,7 +35,7 @@ export default async function handler(req, res) {
   // 1 — Log to Supabase
   if (sbUrl && sbKey) {
     try {
-      await fetch(`${sbUrl}/rest/v1/call_leads`, {
+      const sbRes = await fetch(`${sbUrl}/rest/v1/call_leads`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,14 @@ export default async function handler(req, res) {
           tapped_at: ts || new Date().toISOString(),
         }),
       });
-    } catch(_) {}
+      if (!sbRes.ok) {
+        console.error('Supabase call_leads insert failed:', sbRes.status, await sbRes.text());
+      }
+    } catch(e) {
+      console.error('Supabase call_leads insert threw:', e.message);
+    }
+  } else {
+    console.error('Supabase key missing — call tap not saved to dashboard');
   }
 
   // 2 — Email both Sean and the spa
