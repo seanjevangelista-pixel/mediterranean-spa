@@ -25,6 +25,7 @@ export default async function handler(req, res) {
   // Save lead to Evan Enterprises dashboard first — independent of email,
   // so a missing RESEND_API_KEY or a Resend outage never causes a booking
   // lead to be silently dropped from the dashboard.
+  let leadSaved = false;
   if (supabaseKey) {
     try {
       const sbRes = await fetch(`${supabaseUrl}/rest/v1/form_leads`, {
@@ -47,6 +48,8 @@ export default async function handler(req, res) {
       });
       if (!sbRes.ok) {
         console.error('Supabase form_leads insert failed:', sbRes.status, await sbRes.text());
+      } else {
+        leadSaved = true;
       }
     } catch (e) {
       console.error('Supabase form_leads insert threw:', e.message);
@@ -55,7 +58,15 @@ export default async function handler(req, res) {
     console.error('Supabase key missing — booking lead not saved to dashboard');
   }
 
-  if (!key) return res.status(500).json({ error: 'Email not configured' });
+  // Email is a best-effort internal notification from here on — if the lead
+  // already made it into the dashboard, a missing key or Resend outage must
+  // not turn into a client-facing "something went wrong".
+  if (!key) {
+    console.error('RESEND_API_KEY missing — booking notification email not sent');
+    return leadSaved
+      ? res.status(200).json({ ok: true })
+      : res.status(500).json({ error: 'Email not configured' });
+  }
 
   try {
     const r = await fetch('https://api.resend.com/emails', {
@@ -88,10 +99,18 @@ export default async function handler(req, res) {
     });
 
     const data = await r.json();
-    if (!r.ok) return res.status(r.status).json({ error: data.message || 'Send failed' });
+    if (!r.ok) {
+      console.error('Resend send failed:', r.status, data.message);
+      return leadSaved
+        ? res.status(200).json({ ok: true })
+        : res.status(r.status).json({ error: data.message || 'Send failed' });
+    }
 
     return res.status(200).json({ ok: true });
   } catch (e) {
-    return res.status(500).json({ error: e.message });
+    console.error('Resend send threw:', e.message);
+    return leadSaved
+      ? res.status(200).json({ ok: true })
+      : res.status(500).json({ error: e.message });
   }
 }
