@@ -1369,11 +1369,15 @@
     status.className = 'form-status';
     status.style.display = 'none';
 
+    // Use form.elements (not form.name) — HTMLFormElement.name is a built-in
+    // property that shadows the named control, so form.name returns the form's
+    // empty name attribute and form.name.value.trim() throws, silently breaking
+    // every submission. form.elements.<field> is not shadowed.
     const data = {
-      name: form.name.value.trim(),
-      phone: form.phone.value.trim(),
-      service: form.service.value,
-      message: form.message.value.trim(),
+      name: form.elements.name.value.trim(),
+      phone: form.elements.phone.value.trim(),
+      service: form.elements.service.value,
+      message: form.elements.message.value.trim(),
     };
 
     try {
