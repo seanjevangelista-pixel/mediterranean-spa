@@ -1353,6 +1353,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ source, ts: new Date().toISOString(), ua: navigator.userAgent }),
+        keepalive: true, // tel: tap can navigate away before the POST flushes; keepalive lets it complete
       }).catch(() => {});
     } catch(_) {}
   }
