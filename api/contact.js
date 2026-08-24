@@ -1,3 +1,15 @@
+// Booking-form values are attacker-controlled — the form is public and
+// unauthenticated — and were interpolated straight into the notification
+// email's HTML below. A submitter could put markup in the name or message
+// field (most usefully a phishing link or a tracking pixel) and have it render
+// in the owner's inbox in a mail that arrives from the spa's own trusted
+// sending domain, or close the quote in href="tel:..." to hijack the call
+// button. Escape every value that reaches the template.
+const esc = (v) =>
+  String(v ?? '').replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
+  );
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -84,13 +96,13 @@ export default async function handler(req, res) {
             </div>
             <div style="background:#fff;border:1px solid #e5e7eb;border-top:none;padding:28px 32px;border-radius:0 0 8px 8px">
               <table style="width:100%;border-collapse:collapse">
-                <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;width:140px">Name</td><td style="padding:8px 0;font-weight:600;color:#111">${name}</td></tr>
-                <tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Phone</td><td style="padding:8px 0;font-weight:600;color:#111"><a href="tel:${phone}" style="color:#7B5C3A">${phone}</a></td></tr>
-                <tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Service</td><td style="padding:8px 0;font-weight:600;color:#7B5C3A">${service}</td></tr>
+                <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;width:140px">Name</td><td style="padding:8px 0;font-weight:600;color:#111">${esc(name)}</td></tr>
+                <tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Phone</td><td style="padding:8px 0;font-weight:600;color:#111"><a href="tel:${esc(phone)}" style="color:#7B5C3A">${esc(phone)}</a></td></tr>
+                <tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Service</td><td style="padding:8px 0;font-weight:600;color:#7B5C3A">${esc(service)}</td></tr>
               </table>
-              ${message ? `<div style="margin-top:20px;padding:16px;background:#faf8f5;border-radius:6px;border:1px solid #e5e7eb"><p style="margin:0 0 6px;font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em">Message</p><p style="margin:0;color:#374151;font-size:14px;line-height:1.6">${message}</p></div>` : ''}
+              ${message ? `<div style="margin-top:20px;padding:16px;background:#faf8f5;border-radius:6px;border:1px solid #e5e7eb"><p style="margin:0 0 6px;font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em">Message</p><p style="margin:0;color:#374151;font-size:14px;line-height:1.6">${esc(message)}</p></div>` : ''}
               <div style="margin-top:24px;padding-top:20px;border-top:1px solid #e5e7eb">
-                <a href="tel:${phone}" style="display:inline-block;background:#7B5C3A;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px">Call ${name} Now</a>
+                <a href="tel:${esc(phone)}" style="display:inline-block;background:#7B5C3A;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px">Call ${esc(name)} Now</a>
               </div>
             </div>
           </div>
