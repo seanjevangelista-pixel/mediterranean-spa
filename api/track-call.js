@@ -1,3 +1,15 @@
+// This endpoint is public, unauthenticated and CORS-open, and `source` comes
+// straight from the request body — an unrecognised value was passed through
+// verbatim and interpolated into the notification email's HTML below. Anyone
+// could POST arbitrary markup here (a phishing link, a tracking pixel) and have
+// it render in Sean's and the spa's inboxes in a mail arriving from the spa's
+// own trusted sending domain. Same class of bug as the booking-form fix in
+// api/contact.js; this endpoint was missed by it.
+const esc = (v) =>
+  String(v ?? '').replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
+  );
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -30,7 +42,9 @@ export default async function handler(req, res) {
     mobile:  'Mobile floating button',
   };
 
-  const label = sourceLabels[source] || source;
+  // Known sources map to a fixed label; anything else is untrusted free text, so
+  // cap it before it reaches the email body or the dashboard's source column.
+  const label = sourceLabels[source] || String(source ?? 'unknown').slice(0, 80);
 
   // 1 — Log to Supabase
   if (sbUrl && sbKey) {
@@ -69,8 +83,8 @@ export default async function handler(req, res) {
         </div>
         <div style="background:#fff;border:1px solid #e5e7eb;border-top:none;padding:24px 28px;border-radius:0 0 8px 8px">
           <table style="width:100%;border-collapse:collapse">
-            <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;width:130px">Source</td><td style="padding:8px 0;font-weight:600;color:#111">${label}</td></tr>
-            <tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Time (ET)</td><td style="padding:8px 0;color:#111">${time}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;width:130px">Source</td><td style="padding:8px 0;font-weight:600;color:#111">${esc(label)}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Time (ET)</td><td style="padding:8px 0;color:#111">${esc(time)}</td></tr>
           </table>
           <p style="margin-top:16px;font-size:12px;color:#9ca3af">Someone on the website tapped the call button. They may have called or may still be deciding.</p>
         </div>
