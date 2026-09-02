@@ -90,7 +90,7 @@ export default async function handler(req, res) {
         </div>
       </div>`;
     try {
-      await fetch('https://api.resend.com/emails', {
+      const r = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${resendKey}` },
         body: JSON.stringify({
@@ -100,7 +100,12 @@ export default async function handler(req, res) {
           html,
         }),
       });
-    } catch(_) {}
+      if (!r.ok) {
+        console.error('Resend call-tap send failed:', r.status, await r.text());
+      }
+    } catch(e) {
+      console.error('Resend call-tap send threw:', e.message);
+    }
   }
 
   return res.status(200).json({ ok: true });
